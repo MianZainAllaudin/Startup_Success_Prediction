@@ -276,9 +276,41 @@ GLOBAL_CSS = """
     }
     .footer-brand{font-family:var(--font-display)!important;font-weight:700;color:var(--text-secondary);letter-spacing:-0.01em;}
 
-    /* Hide streamlit chrome */
-    #MainMenu,footer,header{visibility:hidden;}
-    .stDeployButton,[data-testid="stToolbar"]{display:none;}
+    /* ── Hide Streamlit chrome ── */
+    #MainMenu { visibility: hidden; }
+    footer { visibility: hidden; }
+    [data-testid="stDecoration"] { display: none !important; }
+    [data-testid="stHeader"] { background: transparent !important; border-bottom: none !important; }
+    .stDeployButton { display: none !important; }
+    [data-testid="stAppDeployButton"] { display: none !important; }
+
+    /* ── Sidebar toggle buttons (Streamlit 1.57) ── */
+    [data-testid="stExpandSidebarButton"] {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+    [data-testid="stExpandSidebarButton"] button {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        background: rgba(99,179,237,0.12) !important;
+        border: 1px solid rgba(99,179,237,0.25) !important;
+        color: #63b3ed !important;
+        border-radius: 8px !important;
+    }
+    [data-testid="stSidebarCollapseButton"] {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    [data-testid="stSidebarCollapseButton"] button {
+        display: flex !important;
+        visibility: visible !important;
+        color: var(--text-secondary) !important;
+    }
+
     .stSpinner>div{border-color:var(--accent-blue) transparent transparent!important;}
     .stAlert{background:rgba(255,255,255,0.03)!important;border:1px solid var(--border)!important;border-radius:var(--radius-md)!important;color:var(--text-secondary)!important;}
     ::-webkit-scrollbar{width:6px;}
